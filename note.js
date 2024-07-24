@@ -35,6 +35,8 @@ export default NavbarComponent;
 import React, { useState } from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import Sidebar from './Sidebar';
+import { Link } from 'react-router-dom';
+
 
 const NavbarComponent = () => {
   const [show, setShow] = useState(false);
@@ -45,16 +47,16 @@ const NavbarComponent = () => {
     <>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="/">دليل الهيئة</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">دليل الهيئة</Navbar.Brand>
           <Button variant="primary" onClick={handleShow}>
             القائمة
           </Button>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link href="/">الرئيسية</Nav.Link>
-              <Nav.Link href="/branches">الفروع</Nav.Link>
-              <Nav.Link href="/healthcare">الجهات الصحية</Nav.Link>
+              <Nav.Link as={Link} to="/">الرئيسية</Nav.Link>
+              <Nav.Link as={Link} to="/branches">الفروع</Nav.Link>
+              <Nav.Link as={Link} to="/healthcare">الجهات الصحية</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

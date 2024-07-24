@@ -1,30 +1,35 @@
-// src/layout/Navbar.js
+// src/layout/Navbar.js bootstrab
 import React, { useState } from 'react';
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import Sidebar from './Sidebar';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container } from 'react-bootstrap'; // استيراد مكونات بوتستراب
+
 
 const NavbarComponent = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-    document.getElementById('sidebar').classList.toggle('active');
-  };
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand as={Link} to="/">دليل الهيئة</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleSidebar} />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <Nav.Link as={Link} to="/">الرئيسية</Nav.Link>
-            <Nav.Link as={Link} to="/branches">الفروع</Nav.Link>
-            <Nav.Link as={Link} to="/healthcare">الجهات الصحية</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <>
+      <Navbar bg="light" expand="lg">
+        <Button variant="btn btn-outline-primary mx-2" onClick={handleShow}>
+        ◄        </Button>
+        <Container>
+          <Navbar.Brand as={Link} to="/">دليل الهيئة</Navbar.Brand>
+          
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ml-auto">
+              <Nav.Link as={Link} to="/">الرئيسية</Nav.Link>
+              <Nav.Link as={Link} to="/branches">الفروع</Nav.Link>
+              <Nav.Link as={Link} to="/healthcare">الجهات الصحية</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <Sidebar show={show} handleClose={handleClose} />
+    </>
   );
 };
 

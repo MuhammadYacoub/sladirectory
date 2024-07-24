@@ -1,18 +1,24 @@
-// src/layout/Sidebar.js
+// src/layout/Sidebar.js bootstrap
 import React from 'react';
-import { Nav } from 'react-bootstrap'; // استيراد مكونات بوتستراب
+import { Offcanvas } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 
-const Sidebar = () => {
+
+const Sidebar = ({ show, handleClose }) => {
   return (
-    <div id="sidebar" className="sidebar bg-light border-right">
-      <div className="sidebar-heading p-3">القائمة</div>
-      <Nav className="flex-column">
-        <Nav.Link as={Link} to="/" className="list-group-item list-group-item-action bg-light">الرئيسية</Nav.Link>
-        <Nav.Link as={Link} to="/branches" className="list-group-item list-group-item-action bg-light">الفروع</Nav.Link>
-        <Nav.Link as={Link} to="/healthcare" className="list-group-item list-group-item-action bg-light">الجهات الصحية</Nav.Link>
-      </Nav>
-    </div>
+    <Offcanvas show={show} onHide={handleClose} placement="end">
+      <Offcanvas.Header >
+        <Offcanvas.Title>القائمة الجانبية</Offcanvas.Title>
+      </Offcanvas.Header>
+      <Offcanvas.Body>
+        <Nav className="flex-column">
+          <Nav.Link as={Link} to="/" className=" my-2 list-group-item">الرئيسية</Nav.Link>
+          <Nav.Link as={Link} to="/branches" className=" my-2 list-group-item">الفروع</Nav.Link>
+          <Nav.Link as={Link} to="/healthcare" className="  my-2 list-group-item">الجهات الصحية</Nav.Link>
+        </Nav>
+      </Offcanvas.Body>
+    </Offcanvas>
   );
 };
 
