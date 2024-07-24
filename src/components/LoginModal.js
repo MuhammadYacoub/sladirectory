@@ -32,7 +32,7 @@ const LoginModal = ({ onLogin }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button variant="primary" onClick={handleLogin}>
+          <Button type="submit" className='mt-3' variant="primary" onClick={handleLogin}>
             دخول
           </Button>
         </Form>

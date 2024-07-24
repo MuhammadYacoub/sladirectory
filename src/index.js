@@ -1,9 +1,10 @@
 // src/index.js
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-rtl/dist/css/bootstrap-rtl.min.css';
+import 'bootstrap-rtl/dist/css/bootstrap-rtl.min.css'; // إذا كنت تستخدم النسخة RTL من بوتستراب
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import './index.css';  // استيراد الأنماط الشاملة
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

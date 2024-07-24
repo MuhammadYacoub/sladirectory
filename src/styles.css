@@ -1,0 +1,74 @@
+/* src/index.css */
+
+body {
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sticky-footer {
+  margin-top: auto;
+  background-color: #343a40;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+}
+
+.container {
+  padding: 1rem;
+}
+
+.header {
+  background: url('./assets/header-bg.jpg') no-repeat center center/cover;
+  color: #ffffff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.header .logo {
+  height: 50px;
+}
+
+.sidebar .list-group-item a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.sidebar .list-group-item a:hover {
+  color: #007bff;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-color: #343a40;
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-left: none;
+  }
+}
+
+.header {
+  background: url('./assets/header-bg.jpg') no-repeat center center/cover; /* استخدام صورة كخلفية */
+  position: relative;
+  width: 100%;
+  display: flex;
+
+}
