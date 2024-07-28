@@ -154,3 +154,28 @@ body {
     display: none;
   }
 }
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Cairo', sans-serif;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(80deg, #343e5e, #fff, #3c547a);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+@keyframes animate {
+  100% {
+    background-position: -500%;
+  }
+  0% {
+    background-position: 500%;
+  }
+
+
+}

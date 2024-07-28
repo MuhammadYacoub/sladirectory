@@ -15,21 +15,6 @@ const HomePage = () => {
         description="عرض تفاصيل الجهات الصحية المتعاقدة مع الهيئة."
         link="/healthcare"
       />
-      <CardItem
-        title="الجهات الصحية"
-        description="عرض تفاصيل الجهات الصحية المتعاقدة مع الهيئة."
-        link="/healthcare"
-      />
-      <CardItem
-        title="الجهات الصحية"
-        description="عرض تفاصيل الجهات الصحية المتعاقدة مع الهيئة."
-        link="/healthcare"
-      />
-      <CardItem
-        title="الجهات الصحية"
-        description="عرض تفاصيل الجهات الصحية المتعاقدة مع الهيئة."
-        link="/healthcare"
-      />
     </div>
   );
 };
