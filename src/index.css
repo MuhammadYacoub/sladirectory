@@ -179,3 +179,22 @@ h2, h3, h4, h5, h6 {
 
 
 }
+
+/* src/index.css */
+
+/* تخصيص البطاقات */
+.card {
+  margin: 1rem;
+}
+
+/* تنسيق الفلاتر في صف واحد */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filter-container select, .filter-container input {
+  width: 48%; /* عرض كل عنصر من الفلاتر */
+}

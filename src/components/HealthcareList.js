@@ -13,7 +13,7 @@ const HealthcareList = () => {
     setProviders(data);
   }, []);
 
-  const governorates = [...new Set(data.map(provider => provider.المحافظة))];
+  const governorates = [...new Set(data.map(provider => provider.governorate))];
 
   const filteredProviders = providers
     .filter(provider =>
@@ -21,7 +21,7 @@ const HealthcareList = () => {
         .some(value => value.toString().toLowerCase().includes(searchTerm.toLowerCase()))
     )
     .filter(provider => 
-      filterGovernorate ? provider.المحافظة === filterGovernorate : true
+      filterGovernorate ? provider.governorate === filterGovernorate : true
     );
 
   return (
@@ -44,19 +44,15 @@ const HealthcareList = () => {
             <th>العنوان</th>
             <th>المحافظة</th>
             <th>الهاتف</th>
-            <th>الفاكس</th>
-            <th>البريد الإلكتروني</th>
           </tr>
         </thead>
         <tbody>
           {filteredProviders.map(provider => (
-            <tr key={provider.م}>
-              <td>{provider['أسم الجهة']}</td>
-              <td>{provider.العنوان}</td>
-              <td>{provider.المحافظة}</td>
-              <td>{provider.التليفون}</td>
-              <td>{provider.الفاكس}</td>
-              <td>{provider['البريد الإلكتروني']}</td>
+            <tr key={provider.id}>
+              <td>{provider.name}</td>
+              <td>{provider.address}</td>
+              <td>{provider.governorate}</td>
+              <td>{provider.phone}</td>
             </tr>
           ))}
         </tbody>
