@@ -13,7 +13,7 @@ const HomePage = () => {
       <CardItem
         title="دليل مستشاري الهيئة "
         description="بيانات التواصل الخاصة بالسادة أعضاء الهيئة."
-        link="/Consoles"
+        link="/contactslist"
         image={Consulesimage} 
       />
       <CardItem
@@ -23,7 +23,7 @@ const HomePage = () => {
         image={BranchImage} // صورة محلية للفروع
       />
       <CardItem
-        title=" لالجهات الصحية لإداريين الهيئة"
+        title=" الجهات الصحية لإداريين الهيئة"
         description="عرض تفاصيل الجهات الصحية المتعاقدة مع الهيئة."
         link="/healthcare"
         image={HealthcareImage} // صورة محلية للجهات الصحية

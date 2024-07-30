@@ -12,7 +12,7 @@ const NavbarComponent = () => {
 
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar   style={{ backgroundColor: '#e3f2fd' }} variant="light" expand="lg">
         <Button variant="btn btn-outline-primary mx-2" onClick={handleShow}>
         ◄        </Button>
         <Container>
@@ -21,8 +21,8 @@ const NavbarComponent = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link as={Link} to="/">الرئيسية</Nav.Link>
-              <Nav.Link as={Link} to="/consoles">دليل مستشاري الهيئة</Nav.Link>
+              <Nav.Link className='navbar-brand' as={Link} to="/">الرئيسية</Nav.Link>
+              <Nav.Link as={Link} to="/contactslist">دليل مستشاري الهيئة</Nav.Link>
               <Nav.Link as={Link} to="/branches">مقرات الهيئة </Nav.Link>
               <Nav.Link as={Link} to="/healthcare"> الجهات الصحية للإداريين </Nav.Link>
               <Nav.Link as={Link} to="/ConHC">الجهات الصحية لمستشاري الهيئة</Nav.Link>
