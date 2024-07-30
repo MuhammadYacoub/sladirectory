@@ -16,14 +16,16 @@ const NavbarComponent = () => {
         <Button variant="btn btn-outline-primary mx-2" onClick={handleShow}>
         ◄        </Button>
         <Container>
-          <Navbar.Brand as={Link} to="/">دليل الهيئة</Navbar.Brand>
+          {/* <Navbar.Brand as={Link} to="/">دليل الهيئة</Navbar.Brand> */}
           
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
               <Nav.Link as={Link} to="/">الرئيسية</Nav.Link>
-              <Nav.Link as={Link} to="/branches">الفروع</Nav.Link>
-              <Nav.Link as={Link} to="/healthcare">الجهات الصحية</Nav.Link>
+              <Nav.Link as={Link} to="/consoles">دليل مستشاري الهيئة</Nav.Link>
+              <Nav.Link as={Link} to="/branches">مقرات الهيئة </Nav.Link>
+              <Nav.Link as={Link} to="/healthcare"> الجهات الصحية للإداريين </Nav.Link>
+              <Nav.Link as={Link} to="/ConHC">الجهات الصحية لمستشاري الهيئة</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
