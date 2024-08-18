@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BranchList from './components/BranchList';
@@ -26,7 +25,7 @@ function App() {
             <Route path="/branches" element={<BranchList />} />
             <Route path="/healthcare" element={<HealthcareList />} />
             <Route path="/ConHC" element={<ConHC />} />
-            <Route path="/ContactsList" element={<ContactsList />} />
+            <Route path="/contactslist" element={<ContactsList />} />
           </Routes>
         )}
       </Layout>

@@ -36,25 +36,31 @@ const BranchList = () => {
         setSearchTerm={setSearchTerm}
         placeholder="ابحث..."
       />
-      <Filter
-        filter={filterGovernorate}
-        setFilter={setFilterGovernorate}
-        options={governorates}
-        label="المحافظة"
-      />
-      <Filter
-        filter={filterSector}
-        setFilter={setFilterSector}
-        options={sectors}
-        label="القطاع"
-      />
+      <div className="row mb-3">
+        <div className="col-md-6">
+          <Filter
+            filter={filterSector}
+            setFilter={setFilterSector}
+            options={sectors}
+            label="القطاع"
+          />
+        </div>
+        <div className="col-md-6">
+          <Filter
+            filter={filterGovernorate}
+            setFilter={setFilterGovernorate}
+            options={governorates}
+            label="المحافظة"
+          />
+        </div>
+      </div>
       <table className="table table-bordered">
         <thead className="thead-light">
           <tr>
+            <th>القطاع</th>
             <th>اسم الفرع</th>
             <th>العنوان</th>
             <th>المحافظة</th>
-            <th>القطاع</th>
             <th>الهاتف</th>
             <th>الفاكس</th>
           </tr>
@@ -62,10 +68,10 @@ const BranchList = () => {
         <tbody>
           {filteredBranches.map(branch => (
             <tr key={branch.م}>
+              <td>{branch.القطاع}</td>
               <td>{branch['أسم الفرع ']}</td>
               <td>{branch.العنوان}</td>
               <td>{branch.المحافظة}</td>
-              <td>{branch.القطاع}</td>
               <td>{branch.التليفون}</td>
               <td>{branch.الفاكس}</td>
             </tr>

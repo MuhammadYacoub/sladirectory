@@ -22,18 +22,19 @@ const HomePage = () => {
         link="/branches"
         image={BranchImage} // صورة محلية للفروع
       />
+       <CardItem
+        title="الجهات الصحية لمستشاري الهيئة"
+        description="عرض تفاصيل الجهات الصحية المتعاقدة مع الهيئة."
+        link="/ConHC"
+        image={HcconImage} // صورة محلية للجهات الصحية
+      />
       <CardItem
         title=" الجهات الصحية لإداريين الهيئة"
         description="عرض تفاصيل الجهات الصحية المتعاقدة مع الهيئة."
         link="/healthcare"
         image={HealthcareImage} // صورة محلية للجهات الصحية
       />
-      <CardItem
-        title="الجهات الصحية لمستشاري الهيئة"
-        description="عرض تفاصيل الجهات الصحية المتعاقدة مع الهيئة."
-        link="/ConHC"
-        image={HcconImage} // صورة محلية للجهات الصحية
-      />
+     
     </div>
   );
 };
