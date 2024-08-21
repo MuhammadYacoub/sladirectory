@@ -24,8 +24,9 @@ const NavbarComponent = () => {
               <Nav.Link className='navbar-brand' as={Link} to="/">الرئيسية</Nav.Link>
               <Nav.Link as={Link} to="/contactslist">دليل مستشاري الهيئة</Nav.Link>
               <Nav.Link as={Link} to="/branches">مقرات الهيئة </Nav.Link>
-              <Nav.Link as={Link} to="/healthcare"> الجهات الصحية للإداريين </Nav.Link>
               <Nav.Link as={Link} to="/ConHC">الجهات الصحية لمستشاري الهيئة</Nav.Link>
+              <Nav.Link as={Link} to="/healthcare"> الجهات الصحية للإداريين </Nav.Link>
+
             </Nav>
           </Navbar.Collapse>
         </Container>

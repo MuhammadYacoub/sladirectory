@@ -1,8 +1,8 @@
-// src/components/HealthcareList.js
 import React, { useState, useEffect } from 'react';
 import data from '../data/conhc.json';
 import Search from './Search';
 import Filter from './Filter';
+import ProviderCard from './ProviderCard'; // Make sure ProviderCard is correctly imported
 
 const HealthcareList = () => {
   const [providers, setProviders] = useState([]);
@@ -37,28 +37,11 @@ const HealthcareList = () => {
         options={governorates}
         label="المحافظة"
       />
-      <table className="table table-bordered">
-        <thead className="thead-light">
-          <tr>
-            <th>اسم الجهة</th>
-            <th>التخصص</th>
-            <th>المحافطة</th>
-            {/* <th>المحافظة</th> */}
-            <th>النوع</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredProviders.map(provider => (
-            <tr key={provider.id}>
-              <td>{provider.name}</td>
-              <td>{provider.specialization}</td>
-              {/* <td>{provider.address}</td> */}
-              <td>{provider.governorate}</td>
-              <td>{provider.type}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="d-flex flex-wrap justify-content-around">
+        {filteredProviders.map(provider => (
+          <ProviderCard key={provider.id} provider={provider} />
+        ))}
+      </div>
     </div>
   );
 };
