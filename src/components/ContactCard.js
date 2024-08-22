@@ -21,7 +21,7 @@ const ContactCard = ({ contact }) => {
 
     return (
         <div className="rcard card">
-            <div className='container d-flex justify-content-center mb-3 rounded' style={{backgroundColor: "#c8cfdc"}}>
+            <div className='container d-flex justify-content-center mb-3 rounded' style={{backgroundColor: "#3d638d"}}>
                 <img
                     src={`images/${contact.ConsultantID}.jpg`}
                     alt={`${contact.Name}`} // Updated to use contact's name as alt text
