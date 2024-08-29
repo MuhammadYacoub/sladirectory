@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BranchList from './components/BranchList';
 import HealthcareList from './components/HealthcareList';
@@ -8,21 +8,44 @@ import Layout from './layout/Layout';
 import LoginModal from './components/LoginModal';
 import HomePage from './components/HomePage';
 
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js')
-          .then((reg) => console.log('Service Worker: Registered (Pages)'))
-          .catch((err) => console.log(`Service Worker: Error: ${err}`));
-  });
-}
-
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e) => {
+      // منع الكروم من عرض الدعوة التلقائية
+      e.preventDefault();
+      // حفظ الحدث لاستخدامه لاحقا
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
 
   const handleLogin = () => {
-    setIsLoggedIn(true); // تعديل هنا لتحديث حالة تسجيل الدخول بعد التحقق الناجح
+    setIsLoggedIn(true);
+  };
+
+  const handleInstallClick = () => {
+    if (!deferredPrompt) return;
+
+    // عرض الدعوة للتثبيت
+    deferredPrompt.prompt();
+
+    // تحديد ما إذا كان المستخدم قد قبل الدعوة
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      } else {
+        console.log('User dismissed the install prompt');
+      }
+      setDeferredPrompt(null);
+    });
   };
 
   return (
@@ -37,6 +60,11 @@ function App() {
             <Route path="/ConHC" element={<ConHC />} />
             <Route path="/contactslist" element={<ContactsList />} />
           </Routes>
+        )}
+        {deferredPrompt && (
+          <div className="sticky-footer">
+            <button className='btn btn-primary' id='installButton' onClick={handleInstallClick}>تثبيت التطبيق على سطح المكتب </button>
+          </div>
         )}
       </Layout>
     </Router>
