@@ -30,7 +30,12 @@ const NavbarComponent = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
+        
+    <button className='btn btn-info mx-2 ' onClick={() => alert(' لحفظ التطبيق على الهاتف، اضغط على زر المشاركة في متصفحك واختر "Add to Home Screen"')}>
+        حفظ التطبيق  
+    </button>
       </Navbar>
+      
       <Sidebar show={show} handleClose={handleClose} />
     </>
   );

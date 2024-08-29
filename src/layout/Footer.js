@@ -3,9 +3,12 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="sticky-footer text-white text-center p-3 mt-4">
-      <p>&copy; 2024 هيئة قضايا الدولة. جميع الحقوق محفوظة.</p>
-    </footer>
+    <div className="sticky-footer">
+    <button className='btn btn-primary' onClick={() => alert('لحفظ التطبيق على الهاتف، اضغط على زر المشاركة في متصفحك واختر "Add to Home Screen"')}>
+        حفظ التطبيق على الهاتف
+    </button>
+</div>
+
   );
 };
 

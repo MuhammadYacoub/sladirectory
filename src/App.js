@@ -8,11 +8,21 @@ import Layout from './layout/Layout';
 import LoginModal from './components/LoginModal';
 import HomePage from './components/HomePage';
 
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+          .then((reg) => console.log('Service Worker: Registered (Pages)'))
+          .catch((err) => console.log(`Service Worker: Error: ${err}`));
+  });
+}
+
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
-    setIsLoggedIn(true);
+    setIsLoggedIn(true); // تعديل هنا لتحديث حالة تسجيل الدخول بعد التحقق الناجح
   };
 
   return (
