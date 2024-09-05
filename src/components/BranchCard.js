@@ -17,7 +17,8 @@ const BranchCard = ({ branch }) => {
           </Card.Text>
 
         </Card.Body>
-        <CardFooter>          <Button variant="primary" onClick={handleModalShow}>عرض المزيد</Button>
+        <CardFooter>          
+          <Button variant="primary" onClick={handleModalShow}>عرض المزيد</Button>
         </CardFooter>
   
         <Modal show={modalShow} onHide={handleModalClose}>

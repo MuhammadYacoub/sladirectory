@@ -62,9 +62,7 @@ function App() {
           </Routes>
         )}
         {deferredPrompt && (
-          <div className="sticky-footer">
-            <button className='btn btn-primary' id='installButton' onClick={handleInstallClick}>تثبيت التطبيق على سطح المكتب </button>
-          </div>
+            <button id="addToHomeScreen" class="btn btn-primary" onClick={handleInstallClick} >إضافة إلى الشاشة الرئيسية</button>
         )}
       </Layout>
     </Router>

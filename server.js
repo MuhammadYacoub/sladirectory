@@ -3,13 +3,16 @@ const mysql = require('mysql2');
 const cors = require('cors');
 
 const app = express();
+
+// Enable CORS for all domains
 app.use(cors());
+
 app.use(express.json());
 
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '3346',  
+    password: '3346',
     database: 'statelawsuitsauthority'
 });
 
@@ -21,6 +24,7 @@ db.connect(err => {
     console.log('Connected to database');
 });
 
+// Endpoint to get contacts
 app.get('/api/contacts', (req, res) => {
     db.query('SELECT * FROM contacts', (err, results) => {
         if (err) {
@@ -32,6 +36,7 @@ app.get('/api/contacts', (req, res) => {
     });
 });
 
+// Login endpoint
 app.post('/api/login', (req, res) => {
     const { username, password } = req.body;
     const query = 'SELECT Password, ConsultantID FROM contacts WHERE Username = ?';
@@ -45,8 +50,8 @@ app.post('/api/login', (req, res) => {
 
         if (results.length > 0) {
             const user = results[0];
-            if (password === user.Password) { // مقارنة مباشرة بدلاً من استخدام bcrypt
-                res.json({ auth: true, userId: user.ConsultantID }); // إرجاع معرف المستخدم بدلاً من token
+            if (password === user.Password) {
+                res.json({ auth: true, userId: user.ConsultantID });
             } else {
                 res.status(401).send('Invalid credentials');
             }

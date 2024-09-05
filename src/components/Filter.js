@@ -3,10 +3,10 @@ import React from 'react';
 
 const Filter = ({ filter, setFilter, options, label }) => {
   return (
-    <div className="mb-3">
+    <div className="filter">
       <label>{label}</label>
       <select
-        className="form-control"
+        className="form-control" /* Ensures that the new styles are applied */
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
       >

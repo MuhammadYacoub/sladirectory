@@ -27,12 +27,12 @@ const LoginModal = ({ onLogin }) => {
 
     return (
         <Modal show={show} onHide={handleClose} centered>
-            <Modal.Header closeButton>
+            <Modal.Header className='d-flex justify-content-center'>
                 <Modal.Title>تسجيل الدخول</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form>
-                    <Form.Group controlId="username">
+                <Form className='d-flex flex-column'>
+                    <Form.Group className="mb-3" controlId="username">
                         <Form.Control
                             type="text"
                             placeholder="إسم المستخدم "
@@ -40,7 +40,7 @@ const LoginModal = ({ onLogin }) => {
                             onChange={(e) => setUsername(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group controlId="password">
+                    <Form.Group className="mb-3" controlId="password">
                         <Form.Control
                             type="password"
                             placeholder="كلمة المرور "
@@ -53,11 +53,7 @@ const LoginModal = ({ onLogin }) => {
                     </Button>
                 </Form>
             </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    إغلاق
-                </Button>
-            </Modal.Footer>
+
         </Modal>
     );
 };

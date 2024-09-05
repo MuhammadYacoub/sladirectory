@@ -26,14 +26,9 @@ const NavbarComponent = () => {
               <Nav.Link as={Link} to="/branches">مقرات الهيئة </Nav.Link>
               <Nav.Link as={Link} to="/ConHC">الجهات الصحية لمستشاري الهيئة</Nav.Link>
               <Nav.Link as={Link} to="/healthcare"> الجهات الصحية للإداريين </Nav.Link>
-
             </Nav>
           </Navbar.Collapse>
         </Container>
-        
-    <button className='btn btn-info mx-2 ' onClick={() => alert(' لحفظ التطبيق على الهاتف، اضغط على زر المشاركة في متصفحك واختر "Add to Home Screen"')}>
-        حفظ التطبيق  
-    </button>
       </Navbar>
       
       <Sidebar show={show} handleClose={handleClose} />
