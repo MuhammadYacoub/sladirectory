@@ -11,7 +11,7 @@ const LoginModal = ({ onLogin }) => {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/api/login', { username, password });
+            const response = await axios.post('http://192.168.1.102:5000/api/login', { username, password });
             if (response.data.auth) {
                 sessionStorage.setItem('userId', response.data.userId); // استخدام userId بدلا من token
                 onLogin();

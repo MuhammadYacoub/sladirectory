@@ -11,12 +11,11 @@ import HomePage from './components/HomePage';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showInstallButton, setShowInstallButton] = useState(true); // إظهار الزر بشكل دائم
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e) => {
-      // منع الكروم من عرض الدعوة التلقائية
       e.preventDefault();
-      // حفظ الحدث لاستخدامه لاحقا
       setDeferredPrompt(e);
     };
 
@@ -32,20 +31,20 @@ function App() {
   };
 
   const handleInstallClick = () => {
-    if (!deferredPrompt) return;
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
 
-    // عرض الدعوة للتثبيت
-    deferredPrompt.prompt();
-
-    // تحديد ما إذا كان المستخدم قد قبل الدعوة
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the install prompt');
-      } else {
-        console.log('User dismissed the install prompt');
-      }
-      setDeferredPrompt(null);
-    });
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+        setDeferredPrompt(null);
+      });
+    } else {
+      alert("لإضافة التطبيق إلى الشاشة الرئيسية، افتح قائمة المشاركة (Share) واختر 'إضافة إلى الشاشة الرئيسية' (Add to Home Screen).");
+    }
   };
 
   return (
@@ -61,8 +60,21 @@ function App() {
             <Route path="/contactslist" element={<ContactsList />} />
           </Routes>
         )}
-        {deferredPrompt && (
-            <button id="addToHomeScreen" class="btn btn-primary" onClick={handleInstallClick} >إضافة إلى الشاشة الرئيسية</button>
+
+        {showInstallButton && (
+          <button
+            id="addToHomeScreen"
+            className="btn btn-primary"
+            onClick={handleInstallClick}
+            style={{
+              position: 'fixed',
+              bottom: '20px',
+              right: '20px',
+              zIndex: 1000,
+            }}
+          >
+            إضافة إلى الشاشة الرئيسية
+          </button>
         )}
       </Layout>
     </Router>
